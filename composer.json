@@ -1,0 +1,30 @@
+{
+  "name": "mrfd/kirby-webp",
+  "description": "WebP conversion and usage with Kirby 3",
+  "version": "0.1.0",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marijn Roovers",
+      "email": "marijn@mrfd.nl"
+    }
+  ],
+  "keywords": [
+    "kirby3",
+    "kirby3-cms",
+    "kirby3-plugin"
+  ],
+  "require": {
+    "rosell-dk/webp-convert": "^2.3",
+    "getkirby/composer-installer": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "MRFD\\WebP\\": "src/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
