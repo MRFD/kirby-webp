@@ -39,6 +39,11 @@ return [
         return strpos(Server::get('HTTP_ACCEPT'), 'image/webp') !== false;
     },
     'backgroundImage' => function () {
+        // Check if webp file exists. Otherwise genereate one.
+        if (!webpExists($this->extension(), $this->root())) {
+            MRFD\WebP\Convert::webp($this);
+        }
+
         if ($this->isSupported()) {
             return replaceExtension($this->extension(), $this->url());
         }
