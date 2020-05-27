@@ -43,6 +43,6 @@ Kirby::plugin('mrfd/webp', [
     'fileMethods' => require_once __DIR__ . '/src/filemethods.php',
     'tags' => require_once __DIR__ . '/src/tags.php',
     'options' => [
-        'autoconvert' => true
+        'autoconvert' => false
     ]
 ]);
