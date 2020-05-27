@@ -1,15 +1,36 @@
 <?php
 
+use MRFD\WebP\Convert;
+use Kirby\Cms\Html;
+use Kirby\Http\Server;
+
 return [
-    'picture' => function (string $figureClass = null, string $alt = null, string $imageClass = null) {
-        // Check if webp file exists. Otherwise genereate one.
-        if (!webpExists($this->extension(), $this->root())) {
-            MRFD\WebP\Convert::webp($this);
+    'toWebpFile' => function (): object {
+        if (!webpExists($this->extension(), $this->root()) && option('mrfd.webp.autoconvert')) {
+            Convert::webp($this);
+
+            // Return original file, while converting to webp.
+            return $this;
         }
 
+        if (!webpExists($this->extension(), $this->root())) {
+            return $this;
+        }
+
+        $id = replaceExtension($this->extension(), $this->id());
+        return site()->image($id);
+    },
+    'webpObject' => function (): object {
+        if (!$this->isSupported()) {
+            return $this;
+        }
+
+        return $this->toWebpFile();
+    },
+    'picture' => function (string $figureClass = null, string $alt = null, string $imageClass = null): string {
         // Generate webp tag.
         $webp = Html::tag('source', null, [
-            'srcset' => replaceExtension($this->extension(), $this->url()),
+            'srcset' => $this->webpObject()->url(),
             'type' => 'image/webp'
         ]);
 
@@ -21,33 +42,28 @@ return [
 
         return Html::tag('picture', [$webp, $jpg], ['class' => $figureClass]);
     },
-    'webp' => function (string $imageClass = null, string $alt = null) {
-        // Check if webp file exists. Otherwise genereate one.
-        if (!webpExists($this->extension(), $this->root())) {
-            MRFD\WebP\Convert::webp($this);
-        }
+    'webp' => function (string $imageClass = null, string $alt = null, $srcset = null): string {
+        $image = $this->webpObject();
 
-        $url = $this->isSupported() ? replaceExtension($this->extension(), $this->url()) : $this->url();
+        $attr = [
+            'alt' => $alt,
+            'class' => $imageClass,
+        ];
+
+        if (!$srcset === null) {
+            $attr['srcset'] = $image->srcset($srcset);
+        }
 
         // Create img tag.
-        return Html::img($url, [
-            'alt' => $alt,
-            'class' => $imageClass
-        ]);
+        return Html::img($image->url(), $attr);
     },
-    'isSupported' => function () {
+    'isSupported' => function (): bool {
         return strpos(Server::get('HTTP_ACCEPT'), 'image/webp') !== false;
     },
-    'backgroundImage' => function () {
-        // Check if webp file exists. Otherwise genereate one.
-        if (!webpExists($this->extension(), $this->root())) {
-            MRFD\WebP\Convert::webp($this);
-        }
-
-        if ($this->isSupported()) {
-            return replaceExtension($this->extension(), $this->url());
-        }
-
-        return $this->url();
+    'backgroundImage' => function (): string {
+        return $this->webpObject()->url();
     },
+    'srcsetWebp' => function ($sizes = null): ?string {
+        return $this->webpObject()->srcset($sizes);
+    }
 ];

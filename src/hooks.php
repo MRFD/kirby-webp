@@ -1,8 +1,11 @@
 <?php
 
+use MRFD\WebP\Convert;
+use Kirby\Toolkit\F;
+
 return [
     'file.create:after' => function ($file) {
-        MRFD\WebP\Convert::webp($file);
+        Convert::webp($file);
 
         return true;
     },

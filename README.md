@@ -57,7 +57,7 @@ Converts the field to a WebP image tag.
 ```php
 <?php
 if ($image = $page->image('my-image.jpg')) {
-    echo $image->webp('some-class', 'Image description');
+    echo $image->webp('some-class', 'Image description', [300, 800, 1024]);
 }
 ?>
 ```
@@ -65,12 +65,28 @@ if ($image = $page->image('my-image.jpg')) {
 ```html
 <img
   src="/your/path/my-image.webp"
+  srcset="
+    /your/path/my-image-300.webp   300w,
+    /your/path/my-image-800.webp   800w,
+    /your/path/my-image-1024.webp 1024w
+  "
   class="some-class"
   alt="Image description"
 />
 <!-- Or when the browser does not support WebP: -->
-<img src="/your/path/my-image.jpg" class="some-class" alt="Image description" />
+<img
+  src="/your/path/my-image.jpg"
+  srcset="
+    /your/path/my-image-300.jpg   300w,
+    /your/path/my-image-800.jpg   800w,
+    /your/path/my-image-1024.jpg 1024w
+  "
+  class="some-class"
+  alt="Image description"
+/>
 ```
+
+_All arguments are optional._
 
 #### \$field->isSupported()
 
@@ -102,6 +118,36 @@ Returns an image url that can be used with inline CSS, for example with backgrou
 <div style="background-image: url('/your/path/my-image.webp')"></div>
 <!-- Or when the browser does not support WebP: -->
 <div style="background-image: url('/your/path/my-image.jpg')"></div>
+```
+
+#### \$field->srcsetWebp()
+
+Creates a srcset definition for the given sizes. Sizes can be defined as a simple array, or can be set up in the config with the thumbs.srcsets option.
+
+```php
+<?php if ($image = $page->image('my-image.jpg')) : ?>
+    <img src="<?= $image->url() ?>" srcset="<?= $image->srcset([300, 800, 1024]) ?>" />
+<?php endif ?>
+```
+
+```html
+<img
+  src="/your/path/my-image.webp"
+  srcset="
+    /your/path/my-image-300.webp   300w,
+    /your/path/my-image-800.webp   800w,
+    /your/path/my-image-1024.webp 1024w
+  "
+/>
+<!-- Or when the browser does not support WebP: -->
+<img
+  src="/your/path/my-image.jpg"
+  srcset="
+    /your/path/my-image-300.jpg   300w,
+    /your/path/my-image-800.jpg   800w,
+    /your/path/my-image-1024.jpg 1024w
+  "
+/>
 ```
 
 ### KirbyTags
@@ -154,6 +200,20 @@ Creates an image tag with WebP file. Can be a regular image, or a WebP format.
 <!-- Or when the browser does not support WebP: -->
 <img src="/your/path/my-image.jpg" class="some-class" alt="Image description" />
 ```
+
+## Options
+
+### Convert on the fly
+
+It is possible to convert images to WebP without uploading them through the panel. Add the following option to `/site/config/config.php`:
+
+```php
+return [
+  'mrfd.webp.autoconvert' => true
+];
+```
+
+**Note:** Enabling this option may slow down the website. It is therefore advised to upload the images via the panel!
 
 ## License
 

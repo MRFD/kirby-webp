@@ -1,5 +1,8 @@
 <?php
 
+use Kirby\Cms\Html;
+use Kirby\Cms\Url;
+
 return [
     'picture' => [
         'attr' => [
