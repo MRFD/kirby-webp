@@ -6,7 +6,7 @@ This plugin for [Kirby 3](https://getkirby.com) provides automatic WebP conversi
 
 ## Requirements
 
-- PHP 5.6+
+- PHP 7.2+
 - Kirby 3
 
 ## Installation
