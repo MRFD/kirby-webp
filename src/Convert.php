@@ -2,6 +2,8 @@
 
 namespace MRFD\WebP;
 
+use Exception;
+
 use WebPConvert\WebPConvert;
 use Kirby\Cms\Response;
 use Kirby\Toolkit\F;

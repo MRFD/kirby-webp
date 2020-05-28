@@ -1,5 +1,7 @@
 <?php
 
+namespace MRFD\WebP;
+
 use Kirby\Cms\Html;
 use Kirby\Cms\Url;
 

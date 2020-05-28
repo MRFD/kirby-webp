@@ -1,5 +1,7 @@
 <?php
 
+namespace MRFD\WebP;
+
 use MRFD\WebP\Convert;
 use Kirby\Toolkit\F;
 
