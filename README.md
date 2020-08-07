@@ -1,6 +1,6 @@
 # 🖼 Kirby 3 WebP
 
-This plugin for [Kirby 3](https://getkirby.com) provides automatic WebP conversion when uploading images via the Panel. With provisions for the use of field methods, KirbyTags and multi-language sites.
+This plugin for [Kirby 3](https://getkirby.com) provides automatic WebP conversion when uploading images (JPG and PNG) via the Panel. With provisions for the use of field methods, KirbyTags and multi-language sites.
 
 **Note:** When using the field methods and KirbyTags the WebP image will be automatically generated when missing. In addition the WebP image will also be removed when the original image is removed via the Panel.
 
