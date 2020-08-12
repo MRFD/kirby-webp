@@ -1,6 +1,12 @@
 # OS files
 .DS_Store
 
+# npm modules
+/node_modules
+
+# PhpStorm
+/.idea
+
 # files of Composer dependencies that are not needed for the plugin
 /vendor/**/.*
 /vendor/**/*.json

@@ -2,16 +2,15 @@
 
 namespace MRFD\WebP;
 
-use MRFD\WebP\Convert;
 use Kirby\Toolkit\F;
 
 return [
-    'file.create:after' => function ($file) {
+    'file.create:after' => function ($file): bool {
         Convert::webp($file);
 
         return true;
     },
-    'file.delete:after' => function ($status, $file) {
+    'file.delete:after' => function ($status, $file): bool {
         if ($file->type() == 'image' && $status === true) {
             if ($webp = page()->file(replaceExtension($file->extension(), $file->filename()))) {
 
@@ -30,5 +29,7 @@ return [
 
             return false;
         }
+
+        return true;
     }
 ];

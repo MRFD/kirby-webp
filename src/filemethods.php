@@ -2,7 +2,6 @@
 
 namespace MRFD\WebP;
 
-use MRFD\WebP\Convert;
 use Kirby\Cms\Html;
 use Kirby\Http\Server;
 

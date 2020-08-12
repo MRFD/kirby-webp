@@ -3,9 +3,8 @@
 namespace MRFD\WebP;
 
 use Exception;
-
 use WebPConvert\WebPConvert;
-use Kirby\Cms\Response;
+use Kirby\Exception\LogicException;
 use Kirby\Toolkit\F;
 
 /**
@@ -16,14 +15,14 @@ class Convert
     /**
      * Convert image to WebP
      *
-     * @param  object  $file    Uploaden file via CMS.
+     * @param  object  $file    Uploaded file via CMS.
      * @param  array   $options Convert options.
      * 
      */
     public static function webp(object $file, array $options = [])
     {
         try {
-            if (in_array($file->extension(), ['jpg', 'jpeg', 'png'])) {
+            if ($file->type() == 'image' && in_array($file->extension(), ['jpg', 'jpeg', 'png'])) {
                 $destination = replaceExtension($file->extension(), $file->root());
 
                 // Convert image to WebP.
@@ -38,7 +37,7 @@ class Convert
                 }
             }
         } catch (Exception $e) {
-            return Response::error($e->getMessage());
+            throw new LogicException('Image cannot be converted to WebP.');
         }
     }
 }
