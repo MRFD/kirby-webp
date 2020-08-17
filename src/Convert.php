@@ -22,7 +22,7 @@ class Convert
     public static function webp(object $file, array $options = [])
     {
         try {
-            if ($file->type() == 'image' && in_array($file->extension(), ['jpg', 'jpeg', 'png'])) {
+            if (isSupportedImage($file)) {
                 $destination = replaceExtension($file->extension(), $file->root());
 
                 // Convert image to WebP.

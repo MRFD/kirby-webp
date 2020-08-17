@@ -6,7 +6,7 @@ use Kirby\Cms\Html;
 use Kirby\Http\Server;
 
 return [
-    'toWebpFile' => function (): object {
+    'toWebpFile' => function () {
         if (!webpExists($this->extension(), $this->root()) && option('mrfd.webp.autoconvert')) {
             Convert::webp($this);
 
@@ -15,7 +15,7 @@ return [
         }
 
         if (!webpExists($this->extension(), $this->root())) {
-            return $this;
+            return false;
         }
 
         $id = replaceExtension($this->extension(), $this->id());

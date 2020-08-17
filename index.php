@@ -3,7 +3,7 @@
 /**
  * Kirby 3 WebP
  *
- * @version   0.1.2
+ * @version   0.1.3
  * @author    Marijn Roovers <marijn@mrfd.nl>
  * @copyright Marijn Roovers <marijn@mrfd.nl>
  * @link      https://github.com/mrfd/kirby-webp
@@ -29,13 +29,25 @@ function replaceExtension(string $extension, string $path): string
  * Checks if WebP variant of parent file exists.
  *
  * @param   string  $extension  File extension parent file
- * @param   string  $path       File path
+ * @param   string  $path       File name or full path.
  *
  * @return  bool              Returns true if the file exists; false otherwise.
  */
 function webpExists(string $extension, string $path): bool
 {
     return file_exists(replaceExtension($extension, $path));
+}
+
+/**
+ * Checks if the file is supported by the WebP conversion tool.
+ *
+ * @param   Kirby\Cms\File  $file  Kirby file object
+ *
+ * @return  bool     
+ */
+function isSupportedImage(Kirby\Cms\File $file): bool
+{
+    return $file->type() == 'image' && in_array($file->extension(), ['jpg', 'jpeg', 'png']);
 }
 
 Kirby::plugin('mrfd/webp', [
