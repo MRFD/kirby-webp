@@ -5,12 +5,12 @@ namespace MRFD\WebP;
 use Kirby\Toolkit\F;
 
 return [
-    'file.create:after' => function ($file): bool {
+    'file.create:after' => function ($file): void {
         Convert::webp($file);
 
-        return true;
+        return;
     },
-    'file.delete:after' => function ($status, $file): bool {
+    'file.delete:after' => function ($status, $file): void {
         if ($file->type() == 'image' && $status === true) {
             if ($webp = page()->file(replaceExtension($file->extension(), $file->filename()))) {
 
@@ -24,12 +24,12 @@ return [
 
                 F::remove($webp->root());
 
-                return true;
+                return;
             }
 
-            return false;
+            return;
         }
 
-        return true;
+        return;
     }
 ];
