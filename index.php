@@ -43,11 +43,10 @@ function webpExists(string $extension, string $path): bool
  *
  * @param   Kirby\Cms\File  $file  Kirby file object
  *
- * @return  bool     
  */
 function isSupportedImage(Kirby\Cms\File $file): bool
 {
-    return $file->type() == 'image' && in_array($file->extension(), ['jpg', 'jpeg', 'png']);
+    return $file->type() === 'image' && in_array($file->extension(), ['jpg', 'jpeg', 'png']);
 }
 
 Kirby::plugin('mrfd/webp', [

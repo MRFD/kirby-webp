@@ -28,7 +28,7 @@ return [
 
         return $this->toWebpFile();
     },
-    'picture' => function (string $figureClass = null, string $alt = null, string $imageClass = null): string {
+    'picture' => function (?string $figureClass = null, ?string $alt = null, ?string $imageClass = null): string {
         // Generate webp tag.
         $webp = Html::tag('source', null, [
             'srcset' => $this->webpObject()->url(),
@@ -43,7 +43,7 @@ return [
 
         return Html::tag('picture', [$webp, $jpg], ['class' => $figureClass]);
     },
-    'webp' => function (string $imageClass = null, string $alt = null, $srcset = null): string {
+    'webp' => function (?string $imageClass = null, ?string $alt = null, $srcset = null): string {
         $image = $this->webpObject();
 
         $attr = [

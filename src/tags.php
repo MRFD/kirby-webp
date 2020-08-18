@@ -32,7 +32,7 @@ return [
     'webp' => [
         'attr' => [
             'class',
-            'alt'
+            'alt',
         ],
         'html' => function ($tag) {
             $class = $tag->class ?? null;
@@ -47,7 +47,7 @@ return [
 
             return Html::img($url, [
                 'alt' => $alt,
-                'class' => $class
+                'class' => $class,
             ]);
         }
     ],

@@ -3,9 +3,9 @@
 namespace MRFD\WebP;
 
 use Exception;
-use WebPConvert\WebPConvert;
 use Kirby\Exception\LogicException;
 use Kirby\Toolkit\F;
+use WebPConvert\WebPConvert;
 
 /**
  * Converter for WebP.
@@ -17,9 +17,9 @@ class Convert
      *
      * @param  object  $file    Uploaded file via CMS.
      * @param  array   $options Convert options.
-     * 
+     *
      */
-    public static function webp(object $file, array $options = [])
+    public static function webp(object $file, array $options = []): void
     {
         try {
             if (isSupportedImage($file)) {
@@ -36,7 +36,7 @@ class Convert
                     F::write($destination . '.txt', '');
                 }
             }
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             throw new LogicException('Image cannot be converted to WebP.');
         }
     }
