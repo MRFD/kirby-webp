@@ -120,36 +120,6 @@ Returns an image url that can be used with inline CSS, for example with backgrou
 <div style="background-image: url('/your/path/my-image.jpg')"></div>
 ```
 
-#### \$field->srcsetWebp()
-
-Creates a srcset definition for the given sizes. Sizes can be defined as a simple array, or can be set up in the config with the thumbs.srcsets option.
-
-```php
-<?php if ($image = $page->image('my-image.jpg')) : ?>
-    <img src="<?= $image->url() ?>" srcset="<?= $image->srcset([300, 800, 1024]) ?>" />
-<?php endif ?>
-```
-
-```html
-<img
-  src="/your/path/my-image.webp"
-  srcset="
-    /your/path/my-image-300.webp   300w,
-    /your/path/my-image-800.webp   800w,
-    /your/path/my-image-1024.webp 1024w
-  "
-/>
-<!-- Or when the browser does not support WebP: -->
-<img
-  src="/your/path/my-image.jpg"
-  srcset="
-    /your/path/my-image-300.jpg   300w,
-    /your/path/my-image-800.jpg   800w,
-    /your/path/my-image-1024.jpg 1024w
-  "
-/>
-```
-
 ### KirbyTags
 
 #### Picture tag
