@@ -15,7 +15,7 @@ return [
         }
 
         if (!webpExists($this->extension(), $this->root())) {
-            return false;
+            return $this;
         }
 
         $id = replaceExtension($this->extension(), $this->id());
