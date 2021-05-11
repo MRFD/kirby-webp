@@ -88,6 +88,8 @@ if ($image = $page->image('my-image.jpg')) {
 
 _All arguments are optional._
 
+It is also possible to use the [predefined srcset](https://getkirby.com/docs/reference/objects/cms/file/srcset#define-presets). For the default option use: `$image->webp('some-class', 'Image description', 'default')`.
+
 #### \$field->isSupported()
 
 Validates the WebP format is supported by the visitor's browser.

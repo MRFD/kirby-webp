@@ -51,7 +51,7 @@ return [
             'class' => $imageClass,
         ];
 
-        if (!$srcset === null) {
+        if ($srcset !== null) {
             $attr['srcset'] = $image->srcset($srcset);
         }
 
