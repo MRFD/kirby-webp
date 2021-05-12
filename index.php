@@ -3,7 +3,7 @@
 /**
  * Kirby 3 WebP
  *
- * @version   0.1.4
+ * @version   1.0.2
  * @author    Marijn Roovers <marijn@mrfd.nl>
  * @copyright Marijn Roovers <marijn@mrfd.nl>
  * @link      https://github.com/mrfd/kirby-webp

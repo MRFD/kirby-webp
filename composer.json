@@ -1,6 +1,6 @@
 {
   "name": "mrfd/kirby-webp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WebP conversion and usage with Kirby 3",
   "type": "kirby-plugin",
   "license": "MIT",
