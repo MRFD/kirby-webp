@@ -18,8 +18,9 @@ return [
             return $this;
         }
 
-        $id = replaceExtension($this->extension(), $this->id());
-        return site()->image($id);
+        // A somewhat elaborate way to retrieve the File object. But now this file method also works on draft pages.
+        $filename = replaceExtension($this->extension(), $this->filename());
+        return $this->parent()->image($filename);
     },
     'webpObject' => function (): object {
         if (!$this->isSupported()) {
