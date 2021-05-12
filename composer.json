@@ -1,7 +1,7 @@
 {
   "name": "mrfd/kirby-webp",
   "version": "1.0.2",
-  "description": "WebP conversion and usage with Kirby 3",
+  "description": "Kirby 3 plugin for converting images to WebP on the fly, with support for file methods and Kirby tags!",
   "type": "kirby-plugin",
   "license": "MIT",
   "authors": [
