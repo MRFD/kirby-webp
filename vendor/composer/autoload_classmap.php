@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'ImageMimeTypeGuesser\\Detectors\\AbstractDetector' => $vendorDir . '/rosell-dk/image-mime-type-guesser/src/Detectors/AbstractDetector.php',
     'ImageMimeTypeGuesser\\Detectors\\ExifImageType' => $vendorDir . '/rosell-dk/image-mime-type-guesser/src/Detectors/ExifImageType.php',
     'ImageMimeTypeGuesser\\Detectors\\FInfo' => $vendorDir . '/rosell-dk/image-mime-type-guesser/src/Detectors/FInfo.php',
@@ -33,6 +34,7 @@ return array(
     'WebPConvert\\Convert\\Converters\\ConverterTraits\\ExecTrait' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/ConverterTraits/ExecTrait.php',
     'WebPConvert\\Convert\\Converters\\Cwebp' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/Cwebp.php',
     'WebPConvert\\Convert\\Converters\\Ewww' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/Ewww.php',
+    'WebPConvert\\Convert\\Converters\\FFMpeg' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/FFMpeg.php',
     'WebPConvert\\Convert\\Converters\\Gd' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/Gd.php',
     'WebPConvert\\Convert\\Converters\\Gmagick' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/Gmagick.php',
     'WebPConvert\\Convert\\Converters\\GmagickBinary' => $vendorDir . '/rosell-dk/webp-convert/src/Convert/Converters/GmagickBinary.php',

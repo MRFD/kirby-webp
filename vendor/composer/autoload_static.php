@@ -45,6 +45,7 @@ class ComposerStaticInit19aa4ea00acb1928a0a7107121452a98
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ImageMimeTypeGuesser\\Detectors\\AbstractDetector' => __DIR__ . '/..' . '/rosell-dk/image-mime-type-guesser/src/Detectors/AbstractDetector.php',
         'ImageMimeTypeGuesser\\Detectors\\ExifImageType' => __DIR__ . '/..' . '/rosell-dk/image-mime-type-guesser/src/Detectors/ExifImageType.php',
         'ImageMimeTypeGuesser\\Detectors\\FInfo' => __DIR__ . '/..' . '/rosell-dk/image-mime-type-guesser/src/Detectors/FInfo.php',
@@ -72,6 +73,7 @@ class ComposerStaticInit19aa4ea00acb1928a0a7107121452a98
         'WebPConvert\\Convert\\Converters\\ConverterTraits\\ExecTrait' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/ConverterTraits/ExecTrait.php',
         'WebPConvert\\Convert\\Converters\\Cwebp' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/Cwebp.php',
         'WebPConvert\\Convert\\Converters\\Ewww' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/Ewww.php',
+        'WebPConvert\\Convert\\Converters\\FFMpeg' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/FFMpeg.php',
         'WebPConvert\\Convert\\Converters\\Gd' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/Gd.php',
         'WebPConvert\\Convert\\Converters\\Gmagick' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/Gmagick.php',
         'WebPConvert\\Convert\\Converters\\GmagickBinary' => __DIR__ . '/..' . '/rosell-dk/webp-convert/src/Convert/Converters/GmagickBinary.php',
