@@ -7,6 +7,7 @@ This plugin for [Kirby 3](https://getkirby.com) provides automatic WebP conversi
 ## Commerical Usage
 
 This plugin is free but if you use it in a commercial project please consider to
+
 - [Make a donation](https://paypal.me/mrfdnl/5) or
 - [Buy me a coffee](https://buymeacoff.ee/mrfd)
 
@@ -186,12 +187,38 @@ Creates an image tag with WebP file. Can be a regular image, or a WebP format.
 It is possible to convert images to WebP without uploading them through the panel. Add the following option to `/site/config/config.php`:
 
 ```php
+# site/config/config.php
+
 return [
   'mrfd.webp.autoconvert' => true
 ];
 ```
 
 **Note:** Enabling this option may slow down the website. It is therefore advised to upload the images via the panel!
+
+### Conversion options
+
+For configuring advanced WebP conversion settings. For example:
+
+```php
+# site/config/config.php
+
+return [
+  'mrfd.webp.convert.options' => [
+        'metadata' => 'all',
+        'jpeg' => [
+            'converters' => ['cwebp'],
+        ],
+        'png' => [
+            'encoding' => 'auto',
+            'near-lossless' => 60,
+            'quality' => 85,
+        ],
+    ],
+];
+```
+
+For all possible options, please read [this](https://github.com/rosell-dk/webp-convert/blob/master/docs/v2.0/converting/introduction-for-converting.md) and [this](https://github.com/rosell-dk/webp-convert/blob/master/docs/v2.0/converting/options.md).
 
 ## Disclaimer
 

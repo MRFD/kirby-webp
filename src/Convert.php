@@ -25,7 +25,11 @@ class Convert
             if (isSupportedImage($file)) {
                 $destination = replaceExtension($file->extension(), $file->root());
 
-                // Convert image to WebP.
+                // Use the conversion options, if these are specified in the plugin options.
+                if (empty($options) && !empty(option('mrfd.webp.convert.options'))) {
+                    $options = option('mrfd.webp.convert.options');
+                }
+
                 WebPConvert::convert($file->root(), $destination, $options);
 
                 // Create empty template file.

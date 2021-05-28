@@ -3,7 +3,7 @@
 /**
  * Kirby 3 WebP
  *
- * @version   1.0.2
+ * @version   1.0.3
  * @author    Marijn Roovers <marijn@mrfd.nl>
  * @copyright Marijn Roovers <marijn@mrfd.nl>
  * @link      https://github.com/mrfd/kirby-webp
@@ -54,6 +54,9 @@ Kirby::plugin('mrfd/webp', [
     'fileMethods' => require_once __DIR__ . '/src/filemethods.php',
     'tags' => require_once __DIR__ . '/src/tags.php',
     'options' => [
-        'autoconvert' => false
+        'autoconvert' => false,
+        'convert' => [
+            'options' => [],
+        ],
     ]
 ]);
