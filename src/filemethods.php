@@ -3,7 +3,6 @@
 namespace MRFD\WebP;
 
 use Kirby\Cms\Html;
-use Kirby\Http\Server;
 
 return [
     'toWebpFile' => function () {
@@ -60,7 +59,7 @@ return [
         return Html::img($image->url(), $attr);
     },
     'isSupported' => function (): bool {
-        return strpos(Server::get('HTTP_ACCEPT'), 'image/webp') !== false;
+        return strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false;
     },
     'backgroundImage' => function (): string {
         return $this->webpObject()->url();
