@@ -15,13 +15,26 @@ class ComposerStaticInit19aa4ea00acb1928a0a7107121452a98
         array (
             'MRFD\\WebP\\' => 10,
         ),
+        'L' => 
+        array (
+            'LocateBinaries\\' => 15,
+        ),
         'K' => 
         array (
             'Kirby\\' => 6,
         ),
         'I' => 
         array (
+            'ImageMimeTypeSniffer\\' => 21,
             'ImageMimeTypeGuesser\\' => 21,
+        ),
+        'F' => 
+        array (
+            'FileUtil\\' => 9,
+        ),
+        'E' => 
+        array (
+            'ExecWithFallback\\' => 17,
         ),
     );
 
@@ -34,13 +47,29 @@ class ComposerStaticInit19aa4ea00acb1928a0a7107121452a98
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'LocateBinaries\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rosell-dk/locate-binaries/src',
+        ),
         'Kirby\\' => 
         array (
             0 => __DIR__ . '/..' . '/getkirby/composer-installer/src',
         ),
+        'ImageMimeTypeSniffer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rosell-dk/image-mime-type-sniffer/src',
+        ),
         'ImageMimeTypeGuesser\\' => 
         array (
             0 => __DIR__ . '/..' . '/rosell-dk/image-mime-type-guesser/src',
+        ),
+        'FileUtil\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rosell-dk/file-util/src',
+        ),
+        'ExecWithFallback\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rosell-dk/exec-with-fallback/src',
         ),
     );
 
