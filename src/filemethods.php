@@ -63,7 +63,7 @@ return [
             return false;
         }
 
-        return strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') === true;
+        return strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false;
     },
     'backgroundImage' => function (): string {
         return $this->webpObject()->url();
