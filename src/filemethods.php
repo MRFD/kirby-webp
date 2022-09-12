@@ -59,7 +59,11 @@ return [
         return Html::img($image->url(), $attr);
     },
     'isSupported' => function (): bool {
-        return strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false;
+        if (isset($_SERVER['HTTP_ACCEPT']) === false) {
+            return false;
+        }
+
+        return strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') === true;
     },
     'backgroundImage' => function (): string {
         return $this->webpObject()->url();
