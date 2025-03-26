@@ -1,5 +1,8 @@
 # 🖼 Kirby 3 WebP
 
+> [!IMPORTANT]
+> This plugin is no longer actively maintained, as WebP can now be generated [natively](https://getkirby.com/docs/reference/system/options/thumbs#format) in Kirby 4.
+
 This plugin for [Kirby 3](https://getkirby.com) provides automatic WebP conversion when uploading images (JPG and PNG) via the Panel. With provisions for the use of field methods, KirbyTags and multi-language sites.
 
 **Note:** When using the field methods and KirbyTags the WebP image will be automatically generated when missing. In addition the WebP image will also be removed when the original image is removed via the Panel.
